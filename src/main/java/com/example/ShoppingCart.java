@@ -38,4 +38,14 @@ public class ShoppingCart {
 
         return items.isEmpty();
     }
+    public void updateQuantity(String productId, int newQuantity){
+        if(!items.containsKey(productId)){
+            throw new IllegalArgumentException("Produkten finns inte i kundvagnen");
+        }
+        if(newQuantity < 0){
+            removeItem(productId);
+        }else{
+            items.get(productId).setQuantity(newQuantity);
+        }
+    }
 }
