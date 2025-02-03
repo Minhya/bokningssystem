@@ -73,5 +73,13 @@ class ShoppingCartTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Produkten finns inte i kundvagnen");
     }
+    @Test
+    void calculateTotalTest() {
+        shoppingCart.addItem("1", "Apple", 20.0, 2);
+        shoppingCart.addItem("2", "Banana", 10.0, 3);
+
+        double expectedTotal = 40.0 + 30.0;
+        assertThat(shoppingCart.calculateTotal()).isEqualTo(expectedTotal);
+    }
 
 }
