@@ -30,5 +30,17 @@ class ShoppingCartTest {
         shoppingCart.applyDiscount(10);
         assertThat(shoppingCart.calculateTotal()).isEqualTo(90.0);
     }
+    @Test
+    public void cartIsEmptyTest() {
+        ShoppingCart cart = new ShoppingCart();
+
+        assertTrue(cart.isEmpty(), "Tom varukorg.");
+
+        cart.addItem("1", "Apple", 1.5, 2);
+        assertFalse(cart.isEmpty(), "Varukorgen inte tom, lagt till en produkt");
+
+        cart.removeItem("1");
+        assertTrue(cart.isEmpty(), "Varukorg borde vara tom igen.");
+    }
 
 }
