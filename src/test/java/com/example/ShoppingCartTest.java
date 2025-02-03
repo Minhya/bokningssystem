@@ -24,5 +24,11 @@ class ShoppingCartTest {
         shoppingCart.removeItem("1");
         assertThat(shoppingCart.calculateTotal()).isEqualTo(0.0);
     }
+    @Test
+    void applyDiscountTest() {
+        shoppingCart.addItem("1", "Apple", 100.0,1);
+        shoppingCart.applyDiscount(10);
+        assertThat(shoppingCart.calculateTotal()).isEqualTo(90.0);
+    }
 
 }
